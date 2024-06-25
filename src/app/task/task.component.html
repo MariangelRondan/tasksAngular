@@ -1,0 +1,15 @@
+<app-card>
+
+
+<article class="p-4 bg-[var(--violet)] flex flex-col">
+    <div class="grid grid-cols-2 mb-4">
+        <p class="block font-semibold text-xl text-[var(--blue)]">{{task.title}}</p>
+        <time datetime="" class="ml-[30%] block justify-end">{{task.dueDate | date}}</time>
+
+    </div>
+    <p>{{task.summary}}</p>
+    <div class="m-2 ">
+        <button (click)="onCompleteTask()" class="mt-2 sm:ml-[80%] lg:ml-[85%] w-20 h-9 bg-[var(--blue)] text-[#f4f4f4] rounded-md ">Complete</button>
+    </div>
+</article>
+</app-card>

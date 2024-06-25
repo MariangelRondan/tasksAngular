@@ -1,12 +1,37 @@
 
-<!-- <router-outlet /> -->
-<app-header></app-header>
-<main>
-  <ul>
-    <li>
-      <app-user></app-user>
+<router-outlet />
+<!-- <app-header></app-header>
+<main class="mt-16 grid sm:grid-cols-3 gap-4  sm:w-[80%]  lg:w-[65%] mx-auto">
+  <ul class="space-y-2">
+    @for(user of users; track user.id){
+      <li>
+        <app-user [user]="user" [selected]="user.id === selectedUserId" (select)="onSelectUser($event)"></app-user>
+  
+      </li>
 
-    </li>
+    }
   </ul>
+  <div class="col-span-2">
+ 
 
-</main>
+  </div>
+</main> -->
+<!-- <app-tasks [name]="selectedUser.name"></app-tasks> -->
+<!-- 
+     @if(selectedUser){
+
+
+  <app-tasks [userName]="selectedUser.name" [userId]="selectedUser.id" class="col-span-2 "></app-tasks>
+
+      @if(showForm){
+        <app-new-task [userId]="selectedUser.id"></app-new-task>
+      }
+   
+  }   
+
+  @else {
+<div class="bg-[var(--green)] bg-gradient-to-r from-blue-600    to-emerald-500 to-90%  col-span-2 rounded-md text-center ">
+
+  <p class="mt-5 font-semibold text-xl">Select a user to see their tasks</p>
+</div>
+ } -->

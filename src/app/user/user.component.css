@@ -1,0 +1,8 @@
+.active, .active span{
+    background-color: var(--violet);
+    color: #f4f4f4;
+}
+
+span{
+   color: var(--green)
+}

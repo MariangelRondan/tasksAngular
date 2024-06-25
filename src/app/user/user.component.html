@@ -1,7 +1,10 @@
 
-<div>
-    <button (click)="onSelectUser()">
-        <img [src]="imagePath()" [alt]="selectedUser().name">
-    <span>{{selectedUser().name}}</span>
-    </button>
-</div>
+<app-card >
+    <!-- <div class="w-[210px] rounded-md bg-blue-950 text-[#f4f4f4]" > -->
+        <button class="flex p-1 w-full" [class.active]="selected" [routerLink]="['/', user.id, 'tasks']" (click)="onSelectUser()" >
+            <img [src]="imagePath" [alt]="user.name" class="w-11 rounded-full p-1">
+        <span class="m-auto text-center self-center font-medium ">{{user.name}}</span> 
+        </button>
+    <!-- </div> -->
+
+</app-card>

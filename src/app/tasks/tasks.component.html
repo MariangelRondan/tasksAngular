@@ -1,0 +1,21 @@
+@if(addTask){
+    <app-new-task [userId]="userId"  (addTask)="onAddTask($event)"></app-new-task>
+} 
+
+<section class="bg-[var(--blue)] min-h-[200px] h-fit rounded-md ">
+    <header class="grid grid-cols-2">
+        <h1 class="block font-bold text-2xl text-[var(--violet)]">{{userName}}'s Tasks</h1>
+        <menu class="">
+            <button [routerLink]="['../new']" class="ml-[40%] text-center my-auto bg-[var(--violet)] text-[var(--white)] p-1 align-center rounded-md h-9 w-24 ">Add Task</button>
+        </menu>
+
+    </header>
+    <ul class="">
+        @for(task of selectedUserTasks; track task.id){
+            <li class="my-3" >
+    <app-task [task]="task" (complete)="onCompleteTask(task.id)" ></app-task>
+            </li>
+
+        }
+    </ul>
+</section>

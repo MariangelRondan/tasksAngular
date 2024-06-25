@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root{
+    background: var(--blue);
+    max-width: screen;
+    box-sizing: border-box;
+    
+    --white: #f4f4f4;
+    --clear: #ACFCD9;
+    --lilaClaro: #B084CC;
+    --green: #5DD9C1;
+    --violet: #9381FF;
+    --blue: #190933;
+}
