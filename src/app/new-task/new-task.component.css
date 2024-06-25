@@ -38,7 +38,7 @@ h2 {
     padding: 0.15rem 0.25rem;
     border-radius: 10px;
     border: 1px solid var(--blue);
-    background-color: var(--white);
+    background-color: var(--clear);
   }
   
   .actions {
