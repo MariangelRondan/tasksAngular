@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, input, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Task, User, newTask } from '../models/interfaces';
 import { TaskComponent } from '../task/task.component';
 import { tasksData } from './tasks';
@@ -18,28 +18,42 @@ export class TasksComponent implements OnInit {
   @Input() userName!: string ;
   @Input() userId!: string;
   addTask= false;
-
-  constructor(private usersService: UsersService, private taskService: TasksService, private activeRoute: ActivatedRoute){}
-  ngOnInit(): void {
-this.getUserName() 
- }
-
+  order= input<"asc" | "desc">() 
   tasks: Task[] = tasksData;
 
-  get selectedUserTasks(){
-this.tasks = this.taskService.getUserTasks(this.userId)
-return this.tasks;
+
+  
+constructor(private usersService: UsersService, private taskService: TasksService, private activeRoute: ActivatedRoute){}
+  
+
+  ngOnInit(): void {
+this.getUserName() 
+
+ }
+
+
+
+
+
+get selectedUserTasks() {
+  this.tasks = this.taskService.getUserTasks(this.userId);
+
+  if (this.order() === 'desc') {
+    return this.tasks.sort((a, b) => b.id.localeCompare(a.id));
+  } else {
+    return this.tasks.sort((a, b) => a.id.localeCompare(b.id));
   }
+}
 
   onCompleteTask(id: string){
   this.taskService.removeTask(id);
   }
 
   getUserName(){
-    const user: User | undefined = this.usersService.getUserById(this.userId); // Ajustar el tipo según tu implementación
+    const user: User | undefined = this.usersService.getUserById(this.userId); 
 
     if (user) {
-      this.userName = user.name; // Asignar el nombre del usuario si existe
+      this.userName = user.name;
     } 
   }
 

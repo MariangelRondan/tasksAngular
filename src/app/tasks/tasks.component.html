@@ -1,18 +1,19 @@
-@if(addTask){
-    <app-new-task [userId]="userId"  (addTask)="onAddTask($event)"></app-new-task>
-} 
 
-<section class="bg-[var(--blue)] min-h-[200px] h-fit rounded-md ">
+
+<section class="overflow-y-auto min-h-[200px] bg-[var(--blue)]  rounded-md ">
     <header class="grid grid-cols-2">
         <h1 class="block font-bold text-2xl text-[var(--violet)]">{{userName}}'s Tasks</h1>
         <menu class="">
-            <button [routerLink]="['../new']" class="ml-[40%] text-center my-auto bg-[var(--violet)] text-[var(--white)] p-1 align-center rounded-md h-9 w-24 ">Add Task</button>
+            <button [routerLink]="['../new']" class="ml-[35%] text-center my-auto bg-[var(--violet)] text-[var(--white)] p-1 align-center rounded-md h-9 w-24 ">Add Task</button>
         </menu>
 
     </header>
-    <ul class="">
+    <p>
+        <a routerLink="./" [queryParams]="{order: order() === 'asc' ? 'desc' : 'asc' }" class="text-[var(--violet)] text-lg font-medium">Sort from the {{order() === 'asc' ? 'oldest' : 'latest'}} tasks</a>
+    </p>
+    <ul class="overflow-y-visible  max-h-[400px]">
         @for(task of selectedUserTasks; track task.id){
-            <li class="my-3" >
+            <li class="my-3 p-3" >
     <app-task [task]="task" (complete)="onCompleteTask(task.id)" ></app-task>
             </li>
 
