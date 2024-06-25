@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { tasksData } from '../tasks/tasks';
 import { Task, newTask } from '../models/interfaces';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class TasksService {
   tasks: Task[]= tasksData;
 
